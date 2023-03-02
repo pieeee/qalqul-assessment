@@ -1,0 +1,45 @@
+@import "../abstracts/variables";
+@import "../base/utilities";
+@import "../base/typography";
+
+.header {
+  width: 100%;
+  height: 80px;
+  position: fixed;
+  background-color: $background-page;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  border-bottom: 1px solid $nominee-card-bg;
+
+  .items_group {
+    @include container;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+  }
+
+  .brand {
+    @include font-size($h3-font-size);
+    @include font-weight($font-weight-bold);
+    color: $nominee-card-bg;
+  }
+
+  ul {
+    display: flex;
+    gap: 12px;
+    margin: 0px;
+    padding: 0px;
+    li {
+      list-style: none;
+      a {
+        color: $font-color;
+        font-weight: $font-weight-normal;
+        &:hover {
+          color: $font-color-hover;
+        }
+      }
+    }
+  }
+}

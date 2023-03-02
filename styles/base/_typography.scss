@@ -1,0 +1,11 @@
+@import "../abstracts/variables";
+
+@mixin font-size($size) {
+  font-size: $size;
+  line-height: $line-height-base;
+  font-weight: $font-weight-normal;
+}
+
+@mixin font-weight($weight) {
+  font-weight: $weight;
+}
