@@ -1,8 +1,26 @@
-export default function Home() {
-  return (
-    <div>
-      <main></main>
-      <footer></footer>
-    </div>
-  )
+import HomePage from "@/components/pages/Home";
+import content from "lib/articles.json";
+import { Article } from "@types";
+import { InferGetStaticPropsType } from "next";
+
+export default function Home({
+  articles,
+}: InferGetStaticPropsType<typeof getStaticProps>) {
+  return <HomePage articles={articles} />;
+}
+
+export async function getStaticProps() {
+  const articles: Article[] = content;
+
+  return {
+    props: {
+      articles: articles.map(({ title, category, tags, id, author }) => ({
+        id,
+        title,
+        category,
+        tags,
+        author,
+      })),
+    },
+  };
 }

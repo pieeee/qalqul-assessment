@@ -2,28 +2,46 @@
 @import "../base/utilities";
 @import "../base/typography";
 
+.layout {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  margin-top: 140px;
+
+  .main {
+    flex: 1;
+    height: 100%;
+    // padding: 100px 0;
+    padding-bottom: 100px;
+    @include container;
+  }
+}
+
 .header {
   width: 100%;
-  height: 80px;
+  height: 140px;
+  display: flex;
+  align-items: center;
   position: fixed;
   background-color: $background-page;
   top: 0;
   left: 0;
   z-index: 100;
-  border-bottom: 1px solid $nominee-card-bg;
 
   .items_group {
     @include container;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    height: 100%;
+    height: 100px;
+    border: 4px solid $nominee-card-bg;
   }
 
   .brand {
-    @include font-size($h3-font-size);
+    @include font-size($h2-font-size);
     @include font-weight($font-weight-bold);
-    color: $nominee-card-bg;
+    color: $nominee-card-hover-bg;
   }
 
   ul {
@@ -33,6 +51,7 @@
     padding: 0px;
     li {
       list-style: none;
+
       a {
         color: $font-color;
         font-weight: $font-weight-normal;
