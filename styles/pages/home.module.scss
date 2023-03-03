@@ -1,5 +1,6 @@
 @import "../abstracts/variables";
 @import "../base/typography";
+@import "../base/utilities";
 
 .articles {
   display: flex;
@@ -8,6 +9,7 @@
   padding: 0;
   margin: 0;
   max-width: 100%;
+  margin-top: 140px;
 
   li {
     padding: 36px;
@@ -85,6 +87,39 @@
 
       &:hover {
         color: $background-page;
+      }
+    }
+  }
+}
+
+.search_container {
+  position: fixed;
+  height: 140px;
+  top: 100px;
+  left: 0;
+  width: 100%;
+  background-color: $background-page;
+
+  .search_group {
+    @include container;
+
+    span {
+      display: block;
+      font-weight: bold;
+      margin-top: 12px;
+    }
+
+    input {
+      flex: 1;
+      all: unset;
+      border: 3px solid $nominee-card-bg;
+      height: 60px;
+      padding: 0 16px;
+      display: block;
+      width: 100%;
+      box-sizing: border-box;
+      &::placeholder {
+        color: rgba(255, 255, 255, 0.582);
       }
     }
   }
