@@ -42,35 +42,34 @@
         }
       }
     }
+  }
+}
 
-    .modal_body {
-      padding: 24px;
+.user_form {
+  padding: 24px;
 
-      form {
-        input {
-          all: unset;
-          display: block;
-          width: 100%;
-          margin-bottom: 12px;
-          height: 48px;
-          background-color: white;
-          color: $background-page;
-          padding: 0 12px;
-          box-sizing: border-box;
-        }
+  form {
+    input {
+      all: unset;
+      display: block;
+      width: 100%;
+      margin-bottom: 12px;
+      height: 48px;
+      background-color: white;
+      color: $background-page;
+      padding: 0 12px;
+      box-sizing: border-box;
+    }
 
-        button {
-          width: 100%;
-          text-align: center;
-          padding: 12px;
-          margin-top: 18px;
-          border: 2px solid;
-          box-sizing: border-box;
-
-          &:hover {
-            background-color: $nominee-card-hover-bg;
-          }
-        }
+    button {
+      // width: 100%;
+      text-align: center;
+      padding: 12px;
+      margin-top: 18px;
+      border: 2px solid;
+      box-sizing: border-box;
+      &:hover {
+        background-color: $nominee-card-hover-bg;
       }
     }
   }

@@ -13,6 +13,7 @@ import {
   onReaction,
 } from "lib/store/slices/article.slice";
 import styles from "@/styles/pages/article.module.scss";
+import { useRouter } from "next/router";
 
 const ArticleReactions = ({
   articleSlug,
@@ -23,6 +24,7 @@ const ArticleReactions = ({
   userId?: string;
   reaction: { like: number; dislike: number; comment: number };
 }) => {
+  const router = useRouter();
   const dispatch = useAppDispatch();
   const showRegistrationModal = () => dispatch(toggleModal());
   const onArticleAction = (reactionType: ArticleReactionType) => {
@@ -39,6 +41,12 @@ const ArticleReactions = ({
     );
   };
 
+  const onComment = () => {
+    if (router.pathname === "/") {
+      router.push(`${articleSlug}#comment`);
+    }
+  };
+
   return (
     <div className={styles.button_group}>
       <button onClick={() => onArticleAction(ArticleReactionType.LIKE)}>
@@ -51,7 +59,7 @@ const ArticleReactions = ({
         <span>{reaction?.dislike ?? 0} Dislike</span>
       </button>
 
-      <button>
+      <button onClick={onComment}>
         <HiOutlineChatBubbleOvalLeft />
         <span>{reaction?.comment ?? 0} Comment</span>
       </button>

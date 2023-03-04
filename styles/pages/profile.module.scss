@@ -1,0 +1,56 @@
+@import "../abstracts/variables";
+
+.profile {
+  .user {
+    padding: 24px;
+    background-color: $nominee-card-bg;
+    img {
+      display: block;
+      border: 2px solid white;
+      border-radius: 50%;
+      padding: 3px;
+      background-color: white;
+      margin-bottom: 24px;
+    }
+
+    button {
+      display: flex;
+      border: 2px solid;
+      align-items: center;
+      margin-left: auto;
+      gap: 8px;
+      padding: 12px;
+    }
+
+    span {
+      display: flex;
+      font-size: 18px;
+      font-weight: 400;
+      align-items: center;
+      gap: 6px;
+      margin-bottom: 8px;
+    }
+  }
+
+  .articles {
+    margin-top: 48px;
+
+    span {
+      display: block;
+      padding-bottom: 16px;
+      border-bottom: 2px solid white;
+      font-size: 28px;
+      font-weight: 500;
+    }
+
+    li {
+      padding-bottom: 24px;
+
+      a {
+        color: white;
+        font-size: 24px;
+        text-decoration: underline;
+      }
+    }
+  }
+}

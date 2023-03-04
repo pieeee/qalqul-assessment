@@ -2,10 +2,10 @@ import React, { useMemo, useState } from "react";
 import styles from "@/styles/pages/home.module.scss";
 import { Article as TArticle } from "@types";
 import { filterArticles } from "lib/utils/articles";
-import RegistrationModal from "./RegistrationModal";
+import RegistrationModal from "../../reusable/RegistrationModal";
 import { useAppSelector } from "lib/store/hooks";
 import { selectReactions } from "lib/store/slices/article.slice";
-import ArticleCard from "../Article/ArticleCard";
+import ArticleCard from "../../reusable/Articles/ArticleCard";
 import { selectUser } from "lib/store/slices/user.slice";
 
 type ArticleListItem = Omit<TArticle, "content">;

@@ -1,6 +1,7 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { RootState } from "..";
 import { v4 } from "uuid";
+import content from "lib/articles.json";
 
 export enum ArticleReactionType {
   LIKE = "LIKE",
@@ -150,6 +151,36 @@ export const selectCommentsByArticle =
       )
       .reverse();
   };
+
+interface IArticle {
+  slug: string;
+  title: string;
+}
+
+export const selectArticlesByuser = (userId?: string) => (state: RootState) => {
+  if (!userId) {
+    return [];
+  }
+
+  const articles: { [key: string]: IArticle } = {};
+
+  content.forEach((content) => {
+    articles[content.slug] = { slug: content.slug, title: content.title };
+  });
+
+  const likedArticles: IArticle[] = [];
+
+  state.articleReducer.reactions.forEach((reaction) => {
+    if (
+      reaction.userId === userId &&
+      reaction.reactionType === ArticleReactionType.LIKE
+    ) {
+      likedArticles.push(articles[reaction.articleSlug]);
+    }
+  });
+
+  return likedArticles;
+};
 
 // export const selectRegistrationModal = (state: RootState) =>
 //   state.registrationModalReducer.show;

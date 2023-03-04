@@ -18,7 +18,7 @@ const AuthenticatedMenu = ({ user }: { user?: IUser | null }) => {
         width={40}
         height={40}
         alt="user-profile"
-        src={`https://api.dicebear.com/5.x/adventurer/png?seed=${user.name}`}
+        src={`https://api.dicebear.com/5.x/adventurer/png?seed=${user.id}`}
       />
     </Link>
   );

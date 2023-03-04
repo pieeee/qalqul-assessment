@@ -26,6 +26,10 @@ const Comments: React.FC<CommentsProps> = ({
       return;
     }
 
+    if (!comment) {
+      return;
+    }
+
     dispatch(
       onReaction({
         userId,
@@ -44,10 +48,10 @@ const Comments: React.FC<CommentsProps> = ({
       </div>
 
       <textarea
+        id="#comment"
         value={comment}
         onChange={(e) => setComment(e.target.value)}
         name=""
-        id=""
         rows={6}
         placeholder="Post your comment"
       ></textarea>
