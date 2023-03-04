@@ -10,6 +10,15 @@ body {
   color: $font-color;
 }
 
+button {
+  all: unset;
+}
+
+button {
+  all: unset;
+  cursor: pointer;
+}
+
 * {
   box-sizing: border-box;
   text-decoration: none;
@@ -50,8 +59,4 @@ span,
 div {
   @include font-size($font-size-base);
   @include font-weight($font-weight-normal);
-}
-
-button {
-  all: unset;
 }

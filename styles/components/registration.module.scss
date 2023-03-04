@@ -1,0 +1,77 @@
+@import "../base/typography";
+@import "../abstracts/variables";
+
+.modal_container {
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  background-color: rgb(0, 0, 0, 0.8);
+  top: 0;
+  left: 0;
+  z-index: 110;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .modal {
+    max-width: $screen-sm-min;
+    width: 100%;
+    background-color: $nominee-card-bg;
+
+    .modal_header {
+      padding: 24px;
+      display: flex;
+      gap: 24px;
+      border-bottom: 2px solid white;
+      span {
+        font-size: 24px;
+        font-weight: 500;
+      }
+
+      button {
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 2px solid white;
+        cursor: pointer;
+        svg {
+          width: 30px;
+          height: 30px;
+        }
+      }
+    }
+
+    .modal_body {
+      padding: 24px;
+
+      form {
+        input {
+          all: unset;
+          display: block;
+          width: 100%;
+          margin-bottom: 12px;
+          height: 48px;
+          background-color: white;
+          color: $background-page;
+          padding: 0 12px;
+          box-sizing: border-box;
+        }
+
+        button {
+          width: 100%;
+          text-align: center;
+          padding: 12px;
+          margin-top: 18px;
+          border: 2px solid;
+          box-sizing: border-box;
+
+          &:hover {
+            background-color: $nominee-card-hover-bg;
+          }
+        }
+      }
+    }
+  }
+}

@@ -44,3 +44,22 @@
     color: $nominee-card-hover-bg;
   }
 }
+
+.authenticated_menu {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  span {
+    color: white;
+    font-weight: 400;
+  }
+
+  img {
+    display: block;
+    border: 2px solid $nominee-card-bg;
+    border-radius: 50%;
+    padding: 3px;
+    background-color: white;
+  }
+}

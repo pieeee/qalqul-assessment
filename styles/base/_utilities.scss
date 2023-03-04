@@ -27,3 +27,101 @@
     max-width: $container-xl;
   }
 }
+
+/* -------------------------------------------------------------------------- */
+/*                                article card                                */
+/* -------------------------------------------------------------------------- */
+@mixin article-card(
+  $padding: 36px,
+  $border-color: $nominee-card-bg,
+  $bg-color: $nominee-card-bg,
+  $font-color: $font-color,
+  $img-border-color: $background-page,
+  $img-bg-color: $font-color,
+  $author-size: 18px,
+  $author-weight: 500,
+  $author-color: $font-color-hover,
+  $tag-size: 15px,
+  $h3-size: $h3-font-size,
+  $link-color: white,
+  $link-hover-color: $background-page
+) {
+  padding: $padding;
+  border: 1px solid $border-color;
+  background-color: $bg-color;
+  color: $font-color;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+
+  img {
+    display: block;
+    border: 2px solid $img-border-color;
+    border-radius: 50%;
+    padding: 3px;
+    background-color: $img-bg-color;
+  }
+
+  .author {
+    margin-bottom: 12px;
+    span {
+      display: block;
+      @include font-size($author-size);
+      @include font-weight($author-weight);
+      &:nth-of-type(2) {
+        @include font-size(14px);
+        color: $author-color;
+      }
+    }
+  }
+
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 18px;
+    span {
+      @include font-size($tag-size);
+      &::before {
+        content: "#";
+      }
+    }
+  }
+
+  .category {
+    display: block;
+    padding: 4px 8px;
+    border: 1px solid $font-color;
+    border-radius: 4px;
+    margin: 12px 0;
+    max-width: fit-content;
+  }
+
+  .button_group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 36px;
+
+    button {
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      svg {
+        width: 20px;
+        height: 20px;
+      }
+    }
+  }
+
+  a {
+    @include font-size($h3-size);
+    @include font-weight(500);
+    letter-spacing: 1px;
+    color: $link-color;
+    text-decoration: underline;
+
+    &:hover {
+      color: $link-hover-color;
+    }
+  }
+}

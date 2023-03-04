@@ -1,0 +1,61 @@
+@import "../abstracts/variables";
+@import "../base/typography";
+@import "../base/utilities";
+
+.article {
+  @include article-card;
+
+  .content {
+    margin: 32px 0;
+  }
+}
+
+.comments_container {
+  margin-top: 40px;
+
+  .header {
+    padding-bottom: 12px;
+    margin-bottom: 18px;
+    border-bottom: 2px solid;
+    span {
+      @include font-size($h4-font-size);
+      @include font-weight($font-weight-bold);
+    }
+  }
+
+  textarea {
+    all: unset;
+    display: block;
+    width: 100%;
+    border: 2px solid;
+    border-color: $nominee-card-bg;
+    outline: none;
+    padding: 8px;
+    box-sizing: border-box;
+    // background-color: rgb(255, 255, 255);
+    // color: black;
+    font-weight: 400;
+  }
+
+  button {
+    display: block;
+    background-color: $nominee-card-bg;
+    padding: 12px 24px;
+    margin-top: 12px;
+  }
+
+  ul {
+    margin-top: 24px;
+    padding: 0;
+  }
+
+  li {
+    all: unset;
+    display: block;
+    padding: 0;
+    padding: 24px;
+    margin-top: 12px;
+    background-color: #163146;
+    border-left: 4px solid $nominee-card-bg;
+  }
+}

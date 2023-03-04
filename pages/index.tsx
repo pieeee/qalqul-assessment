@@ -14,12 +14,13 @@ export async function getStaticProps() {
 
   return {
     props: {
-      articles: articles.map(({ title, category, tags, id, author }) => ({
+      articles: articles.map(({ title, category, tags, id, author, slug }) => ({
         id,
         title,
         category,
         tags,
         author,
+        slug,
       })),
     },
   };
