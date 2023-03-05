@@ -16,4 +16,4 @@ jobs:
       - name: Install npm packages
         run: yarn install
       - name: Start testing
-        run: yarn test
+        run: yarn test-coverage
