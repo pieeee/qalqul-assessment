@@ -4,7 +4,7 @@ on:
     branches:
       - "master"
 jobs:
-  Test-Qalqul-Articles-build:
+  Build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -15,5 +15,5 @@ jobs:
           cache: "npm"
       - name: Install npm packages
         run: yarn install
-      - name: Start testing
+      - name: Start Building
         run: yarn build

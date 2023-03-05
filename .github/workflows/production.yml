@@ -1,0 +1,30 @@
+name: Production
+env:
+  VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+  VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+on:
+  workflow_dispatch:
+    inputs:
+      version: 
+        description: 'The version you want to release'
+        required: true
+        type: string
+jobs:
+  Deploy-Latest-Release-Vercel:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Tag checkout 🏷
+        uses: actions/checkout@v2
+        with:
+          ref: ${{ github.event.inputs.version }}
+      - name: Setup NodeJS 🟢
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+          cache: "npm"
+      - name: Install Vercel CLI 📦
+        run: npm install --global vercel@canary
+      - name: Pull Vercel Environment Information 📜
+        run: vercel pull --yes --environment=production --token=${{ secrets.VERCEL_TOKEN }}
+      - name: Deploy Project Artifacts to Vercel 🚀
+        run: vercel deploy --prod --token=${{ secrets.VERCEL_TOKEN }}
