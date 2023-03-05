@@ -21,7 +21,7 @@ const UserForm = ({
 }) => {
   return (
     <div className={styles.user_form}>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} data-testid="user-form">
         <input
           defaultValue={defaultValues?.name}
           placeholder="Your full name"

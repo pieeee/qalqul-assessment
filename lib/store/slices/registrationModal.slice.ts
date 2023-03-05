@@ -7,7 +7,7 @@ const initialState: IRegistrationModal = {
 };
 
 export const registrationModalSlice = createSlice({
-  name: "registrationModal",
+  name: "registration",
   initialState,
   reducers: {
     toggleModal: (state) => {
@@ -19,6 +19,6 @@ export const registrationModalSlice = createSlice({
 export const { toggleModal } = registrationModalSlice.actions;
 
 export const selectRegistrationModal = (state: RootState) =>
-  state.registrationModalReducer.show;
+  state.registration.show;
 
 export default registrationModalSlice.reducer;

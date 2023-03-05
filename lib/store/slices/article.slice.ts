@@ -1,7 +1,7 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { RootState } from "..";
 import { v4 } from "uuid";
-import content from "lib/articles.json";
+import content from "../../../lib/articles.json";
 
 export enum ArticleReactionType {
   LIKE = "LIKE",
@@ -26,7 +26,7 @@ const initialState: IArticleState = {
 };
 
 export const articleSlice = createSlice({
-  name: "registrationModal",
+  name: "article",
   initialState,
   reducers: {
     onReaction: (
@@ -75,7 +75,7 @@ export const articleSlice = createSlice({
 export const { onReaction } = articleSlice.actions;
 
 export const selectReactions = (state: RootState) => {
-  const allReactions = state.articleReducer.reactions;
+  const allReactions = state.article.reactions;
   const reactionsCount: {
     [key: string]: { like: number; dislike: number; comment: number };
   } = {};
@@ -116,7 +116,7 @@ export const selectReactionsByArticle =
       comment: 0,
     };
 
-    const reactions = state.articleReducer.reactions.filter(
+    const reactions = state.article.reactions.filter(
       (reaction) => reaction.articleSlug === slug
     );
 
@@ -143,7 +143,7 @@ export const selectReactionsByArticle =
 
 export const selectCommentsByArticle =
   (articleSlug: string) => (state: RootState) => {
-    return state.articleReducer.reactions
+    return state.article.reactions
       .filter(
         (reaction) =>
           reaction.articleSlug === articleSlug &&
@@ -170,7 +170,7 @@ export const selectArticlesByuser = (userId?: string) => (state: RootState) => {
 
   const likedArticles: IArticle[] = [];
 
-  state.articleReducer.reactions.forEach((reaction) => {
+  state.article.reactions.forEach((reaction) => {
     if (
       reaction.userId === userId &&
       reaction.reactionType === ArticleReactionType.LIKE

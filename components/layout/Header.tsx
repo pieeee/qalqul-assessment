@@ -2,9 +2,8 @@ import React from "react";
 import styles from "@/styles/shared/layout.module.scss";
 import Link from "next/link";
 import dynamic from "next/dynamic";
-import { useAppSelector } from "lib/store/hooks";
-import { selectUser } from "lib/store/slices/user.slice";
-// import AuthenticatedMenu from "./AuthenticatedMenu";
+import { useAppSelector } from "../../lib/store/hooks";
+import { selectUser } from "../../lib/store/slices/user.slice";
 
 const AuthenticatedMenu = dynamic(() => import("./AuthenticatedMenu"), {
   ssr: false,

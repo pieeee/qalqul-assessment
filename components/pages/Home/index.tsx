@@ -45,20 +45,22 @@ const HomePage: React.FC<HomePageProps> = ({ articles }) => {
       <ul className={styles.articles}>
         {!searchParam
           ? articles.map((article) => (
-              <ArticleCard
-                article={article}
-                key={article.id}
-                reaction={reactionsCount[article.slug]}
-                userId={user?.id}
-              />
+              <li key={article.id}>
+                <ArticleCard
+                  article={article}
+                  reaction={reactionsCount[article.slug]}
+                  userId={user?.id}
+                />
+              </li>
             ))
           : filteredArticles.map((article) => (
-              <ArticleCard
-                article={article}
-                key={article.id}
-                reaction={reactionsCount[article.slug]}
-                userId={user?.id}
-              />
+              <li key={article.id}>
+                <ArticleCard
+                  article={article}
+                  reaction={reactionsCount[article.slug]}
+                  userId={user?.id}
+                />
+              </li>
             ))}
       </ul>
     </div>

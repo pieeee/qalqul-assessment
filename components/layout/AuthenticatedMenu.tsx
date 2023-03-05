@@ -1,6 +1,4 @@
 import { IUser } from "@types";
-import { useAppSelector } from "lib/store/hooks";
-import { selectUser } from "lib/store/slices/user.slice";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";

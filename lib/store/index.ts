@@ -5,10 +5,10 @@ import registrationModalReducer from "./slices/registrationModal.slice";
 import articleReducer from "./slices/article.slice";
 import { loadState } from "./browser-storage";
 
-const reducer = combineReducers({
+export const reducer = combineReducers({
   user: userReducer,
-  registrationModalReducer,
-  articleReducer,
+  registration: registrationModalReducer,
+  article: articleReducer,
 });
 
 export const store = configureStore({
@@ -16,7 +16,7 @@ export const store = configureStore({
   reducer,
   preloadedState: {
     user: loadState()?.user,
-    articleReducer: loadState()?.articleReducer,
+    article: loadState()?.article,
   },
 });
 
@@ -24,3 +24,8 @@ export const store = configureStore({
 export type RootState = ReturnType<typeof store.getState>;
 // Inferred type: {posts: PostsState, comments: CommentsState, users: UsersState}
 export type AppDispatch = typeof store.dispatch;
+export type AppStore = ReturnType<typeof configureStore>;
+
+/* -------------------------------------------------------------------------- */
+/*                                    test                                    */
+/* -------------------------------------------------------------------------- */

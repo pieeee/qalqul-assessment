@@ -6,6 +6,7 @@ import {
 } from "lib/store/slices/article.slice";
 import React, { useState } from "react";
 import styles from "@/styles/pages/article.module.scss";
+import { toggleModal } from "lib/store/slices/registrationModal.slice";
 
 interface CommentsProps {
   comments: IReaction[];
@@ -23,6 +24,7 @@ const Comments: React.FC<CommentsProps> = ({
 
   const postComment = () => {
     if (!userId) {
+      dispatch(toggleModal());
       return;
     }
 
@@ -58,8 +60,8 @@ const Comments: React.FC<CommentsProps> = ({
       <button onClick={postComment}>Comment</button>
 
       <ul>
-        {comments.map(({ comment, reactionId }) => (
-          <li key={reactionId}>
+        {comments.map(({ comment }, idx) => (
+          <li key={idx}>
             <span>{comment}</span>
           </li>
         ))}

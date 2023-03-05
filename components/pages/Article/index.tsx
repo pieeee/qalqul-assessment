@@ -8,6 +8,7 @@ import {
 } from "lib/store/slices/article.slice";
 import { selectUser } from "lib/store/slices/user.slice";
 import dynamic from "next/dynamic";
+import RegistrationModal from "@/components/reusable/RegistrationModal";
 const Comments = dynamic(() => import("./Comments"), { ssr: false });
 
 const ArticlePage = ({ article }: { article: Article }) => {
@@ -17,6 +18,7 @@ const ArticlePage = ({ article }: { article: Article }) => {
 
   return (
     <>
+      <RegistrationModal />
       <ArticleCard article={article} reaction={reaction} userId={user?.id} />
       <Comments
         comments={comments}

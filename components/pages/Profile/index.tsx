@@ -9,16 +9,39 @@ import { HiUserCircle } from "react-icons/hi2";
 import { HiMail, HiOfficeBuilding, HiPencilAlt } from "react-icons/hi";
 import { useState } from "react";
 import UserForm, { UserFormElement } from "@/components/reusable/UserForm";
+import { IUser } from "@types";
 
 const ProfilePage = () => {
-  const dispatch = useAppDispatch();
   const user = useAppSelector(selectUser);
   if (!user) {
     return <Error statusCode={404} />;
   }
 
-  const [editView, setEditView] = useState(false);
   const likedArticles = useAppSelector(selectArticlesByuser(user?.id));
+
+  return (
+    <div className={styels.profile}>
+      <UserProfile user={user} />
+      <div className={styels.articles}>
+        <span>Liked Articles</span>
+        <ul>
+          {likedArticles.map((article) => (
+            <li>
+              <Link href={article.slug}>{article.title}</Link>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  );
+};
+
+export default ProfilePage;
+
+export const UserProfile = ({ user }: { user: IUser }) => {
+  const dispatch = useAppDispatch();
+
+  const [editView, setEditView] = useState(false);
 
   function handleSubmit(event: React.FormEvent<UserFormElement>) {
     event.preventDefault();
@@ -38,50 +61,35 @@ const ProfilePage = () => {
   }
 
   return (
-    <div className={styels.profile}>
-      <div className={styels.user}>
-        <Image
-          width={100}
-          height={100}
-          alt="autor-profile"
-          src={`https://api.dicebear.com/5.x/adventurer/png?seed=${user?.id}`}
-        />
-        {editView ? (
-          <UserForm handleSubmit={handleSubmit} defaultValues={user} />
-        ) : (
-          <>
-            <button onClick={() => setEditView(!editView)}>
-              <HiPencilAlt />
-              Edit Profile
-            </button>
-            <span>
-              <HiUserCircle />
-              {user?.name}
-            </span>
-            <span>
-              <HiMail />
-              {user?.email}
-            </span>
-            <span>
-              <HiOfficeBuilding />
-              {user?.organization}
-            </span>
-          </>
-        )}
-      </div>
-
-      <div className={styels.articles}>
-        <span>Liked Articles</span>
-        <ul>
-          {likedArticles.map((article) => (
-            <li>
-              <Link href={article.slug}>{article.title}</Link>
-            </li>
-          ))}
-        </ul>
-      </div>
+    <div className={styels.user}>
+      <Image
+        width={100}
+        height={100}
+        alt="autor-profile"
+        src={`https://api.dicebear.com/5.x/adventurer/png?seed=${user?.id}`}
+      />
+      {editView ? (
+        <UserForm handleSubmit={handleSubmit} defaultValues={user} />
+      ) : (
+        <>
+          <button onClick={() => setEditView(!editView)}>
+            <HiPencilAlt />
+            Edit Profile
+          </button>
+          <span>
+            <HiUserCircle />
+            {user?.name}
+          </span>
+          <span>
+            <HiMail />
+            {user?.email}
+          </span>
+          <span>
+            <HiOfficeBuilding />
+            {user?.organization}
+          </span>
+        </>
+      )}
     </div>
   );
 };
-
-export default ProfilePage;
