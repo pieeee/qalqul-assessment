@@ -1,5 +1,8 @@
 # Next.js + Jest
 
+
+[![Test](https://github.com/pieeee/qalqul-assessment/actions/workflows/test.yml/badge.svg)](https://github.com/pieeee/qalqul-assessment/actions/workflows/test.yml)
+
 This example shows how to configure Jest to work with Next.js.
 
 This includes Next.js' built-in support for Global CSS, CSS Modules and TypeScript.

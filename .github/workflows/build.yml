@@ -1,0 +1,19 @@
+name: Build
+on:
+  push:
+    branches:
+      - "master"
+jobs:
+  Test-Qalqul-Articles-build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup NodeJS 🟢
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+          cache: "npm"
+      - name: Install npm packages
+        run: yarn install
+      - name: Start testing
+        run: yarn build
